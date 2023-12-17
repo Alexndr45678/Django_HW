@@ -15,14 +15,11 @@ def log(view_func):
 
 @log
 def main(request):
-    try:
-        result = 1 / 0
-    except Exception as e:
-        logger.exception(f"Error! {e}")
-        return HttpResponse("My first site")
+    logger.info("Main page accessed")
+    return HttpResponse("My first site")
 
 
 @log
 def about(request):
-    logger.info("Main page accessed.")
+    logger.info("About page accessed.")
     return HttpResponse("This page contain info about me.")
